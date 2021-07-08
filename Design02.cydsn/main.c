@@ -33,7 +33,7 @@ int main(void)
           if(data==0x32 && d==0){
             txdata[0]=0x32;
             rxdata[0]=0x32;
-            UART_SpiUartWriteTxData(0x32);
+            
             
             d++;
         }
@@ -42,49 +42,48 @@ int main(void)
            else if(data==0xBB && d==1 ){
                 txdata[1]=0xAA;
                  rxdata[1]=0xBB;
-                UART_SpiUartWriteTxData(0xAA);
+                
                // break;
                 d++;
             }
            else if(data==0x00 && d==2  ){
                 txdata[2]=0x00;
                  rxdata[2]=0x00;
-                UART_SpiUartWriteTxData(0x00);
+                
                // break;
                 d++;
             }
         else if(data==0x0B && d==3  ){
                 txdata[3]=0x0A;
                  rxdata[3]=0x0B;
-                UART_SpiUartWriteTxData(0x0A);
+                
                // break;
                 d++;
             }
        else if(data==0x00 && d==4  ){
                 txdata[4]=0x07;
         rxdata[4]=0x00;
-                UART_SpiUartWriteTxData(0x00);
+                
                // break;
                 d++;
             }
         else if(data==0x00 && d==5 ){
                 txdata[5]=0xE5;
         rxdata[5]=0x00;
-                UART_SpiUartWriteTxData(0xE5);
+        
                // break;
                 d++;
             }
         else if(data==0x00 && d==6 ){
                 txdata[6]=0x07;
         rxdata[6]=0x00;
-                UART_SpiUartWriteTxData(0x07);
-                
+        
                // break;
                 d++;
             }
         else if(data ==(rxdata[1]^rxdata[2]^rxdata[3]^rxdata[4]^rxdata[5]^rxdata[6]) && d==7  ){
               txdata[7]=0x06;
-                  UART_SpiUartWriteTxData(0x06);
+            
                // break;
                 d++;
             }
@@ -94,18 +93,25 @@ int main(void)
                 txdata[10]=0x00;
                txdata[11]=0x00;
                
+                UART_SpiUartWriteTxData(0x07);
+                UART_SpiUartWriteTxData(0x32);
+                UART_SpiUartWriteTxData(0xAA);
+                UART_SpiUartWriteTxData(0x00);
+                UART_SpiUartWriteTxData(0x0A);
+                UART_SpiUartWriteTxData(0x00);
+                UART_SpiUartWriteTxData(0xE5);
+                UART_SpiUartWriteTxData(0x06);
                 UART_SpiUartWriteTxData(0x00);
                 UART_SpiUartWriteTxData(0x00);
                 UART_SpiUartWriteTxData(0x00);
                 UART_SpiUartWriteTxData(0x00);
                 UART_SpiUartWriteTxData(txdata[1]^ txdata[2]^ txdata[3]^ txdata[4]^ txdata[5]^ txdata[6]^ txdata[7]^ txdata[8]^ txdata[9]^ txdata[10]^ txdata[11]);
-                 UART_SpiUartWriteTxData(0x34);
+                UART_SpiUartWriteTxData(0x34);
                 // break;
                 d=0;
             }
-            branch1
-            branch2
-        https://github.com/GoodleaF/PCtoBoard
+            
+        
        }
    // if(rxdata=[0x32,0xAA, 0x00,0x0A,0x07,0xE5,0x07,0x00,0x00,0x00]){
    //}
